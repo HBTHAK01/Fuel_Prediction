@@ -7,6 +7,42 @@
 
 {% block body %}
 
-<h1> Hello Team, this is our home page</h1>
+<div class = "my-container">
+    <div class = "login">
+    <div class = "icon">
+        <i class="fas fa-gas-pump"></i>
+        <label>Fuel Master</label>
+    </div>
+    <h1>Welcome Back</h1>
+        <form method = "POST">
+            <div class = "form-group">
+                <label for = "email_login">Email Address</label>
+                <input type = "email" class = "form-control" placeholder= "Email Address" name="email_login" required>
+                
+                <label for = "password_login">Password</label>
+                <input type = "password" class = "form-control" placeholder= "Password" name="password_login" required>
+            </div>
+            
+        </form>
+        <br>
+        <a href ="#">Forgot your password?</a>
+        <button type = "submit" class = "btn btn-primary">Login</button>
+        <div class = "sign-up">
+            <p>Don't have an account? <a href = #> Sign-up</a></p>
+        </div>
+    </div>
+    <div class = "logo">
+        <div class = "app-info">
+            <label>Fuel Master<br>
+                Reliable and Cheapest Fuel Price Predictor App
+            </label>
+        </div>
+        <div class = "imgGas">
+            <img src = "static/images/Fuel_Image.png">
+        </div>
+        
 
+    </div>
+</div>
+    
 {% endblock %}
