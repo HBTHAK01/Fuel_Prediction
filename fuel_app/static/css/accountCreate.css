@@ -69,6 +69,10 @@ button{
     padding: 0.5rem !important;
 }
 
+.Create > a{
+    float: right;
+}
+
 .login{
     margin: 5% 2%;
 }
