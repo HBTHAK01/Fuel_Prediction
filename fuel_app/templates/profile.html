@@ -1,58 +1,52 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Home Page</title>
+
+<title>Profile</title>
 <link rel="stylesheet" href="static\css\profile.css"
+
 {% endblock %}
 
 {% block body %}
 
 <div class = "my-container">
     <div class = "Create">
-    <div class = "icon">
-        <i class="fas fa-gas-pump"></i>
-        <label>Fuel Master</label>
-    </div>
-    <!-- profile info inputs -->
-    <h1>Profile Managment</h1>
-        <form method = "POST">
-            <div class = "form-group">
-                <label for = "name_Profile">Full Name (required)</label>
-                <input type = "name" class = "form-control" placeholder= "Full Name" name="name_Profile" required>
-                
-                <label for = "Address1_Profile">Address 1 (required)</label>
-                <input type = "address1" class = "form-control" placeholder= "Address 1" name="Address1_Profile" required>
+        <div class = "icon">
+            <i class="fas fa-gas-pump"></i>
+            <label>Fuel Master</label>
+        </div>
 
-                <label for = "Address2_Profile">Address 2</label>
-                <input type = "address2" class = "form-control" placeholder= "Address 2" name="Address2_Profile" required>
+        <!-- profile info inputs -->
+        <h1>Profile Management</h1>
+            <form method = "POST">
+                <div class = "form-group">
+                    <label for = "name_Profile">Full Name</label>
+                    <input type = "text" class = "form-control" placeholder= "Full Name" name="name_Profile" required>
 
-                <label for = "city_Profile">City (required)</label>
-                <input type = "city" class = "form-control" placeholder= "City" name="city_Profile" required>
+                    <label for = "email_address">Email</label>
+                    <input type = "email" class = "form-control" placeholder= "Email" name="email_address" required>
+                    
+                    <label for = "Address1_Profile">Address 1</label>
+                    <input type = "text" class = "form-control" placeholder= "Address 1" name="Address1_Profile" required>
 
-                <label for = "state_Profile">State (required)</label>
-                <input type = "state" class = "form-control" placeholder= "State" name="state_Profile" required>
+                    <label for = "Address2_Profile">Address 2</label>
+                    <input type = "text" class = "form-control" placeholder= "Address 2" name="Address2_Profile" required>
 
-                <label for = "zipcode_Profile">Zipcode (required)</label>
-                <input type = "zipcode" class = "form-control" placeholder= "Zipcode" name="zipcode_Profile" required>
-            </div>
+                    <label for = "city_Profile">City</label>
+                    <input type = "text" class = "form-control" placeholder= "City" name="city_Profile" required>
+
+                    <label for = "state_Profile">State</label>
+                    <input type = "text" class = "form-control" placeholder= "State" name="state_Profile" required>
+
+                    <label for = "zipcode_Profile">Zipcode</label>
+                    <input type = "text" class = "form-control" placeholder= "Zipcode" name="zipcode_Profile" required>
+                </div>            
+            </form>
+            <br>
             
-        </form>
-        <br>
-        <!-- the button to submit info -->
-        <button type = "submit" class = "btn btn-primary">Confirm</button>
-    </div>
-    <div class = "logo">
-        <div class = "app-info">
-            <label>Fuel Master<br>
-                Reliable and Cheapest Fuel Price Predictor App
-            </label>
-        </div>
-        <div class = "imgGas">
-            <img src = "static/images/Fuel_Image.png">
-        </div>
-        
-
-    </div>
+            <!-- the button to submit profile details -->
+            <button type = "submit" class = "btn btn-primary">Submit</button>
+    </div>    
 </div>
     
 {% endblock %}
