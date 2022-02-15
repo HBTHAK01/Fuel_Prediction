@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>History</title>
+<link rel="stylesheet" href="static\css\quoteHistory.css"
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "my-container">
+    <div class = "History">
+        <div class = "icon">
+            <i class="fas fa-gas-pump"></i>
+            <label>Fuel Master</label>
+        </div>
+
+        <!-- Quote history table for the client -->
+        <h1>Quote History</h1>
+            
+        <table>
+
+            <tr>
+                <th>Gallons Requested</th>
+                <th>Delivery Address</th>
+                <th>Delivery Date</th>
+                <th>Price/gallon</th>
+                <th>Amount Due</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+                
+            <tr>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+                <td>e</td>
+            </tr>
+
+            <tr>
+                <td>P</td>
+                <td>Q</td>
+                <td>R</td>
+                <td>S</td>
+                <td>T</td>
+            </tr>
+
+        </table>
+    </div>    
+</div>
+    
+{% endblock %}
