@@ -1,0 +1,93 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none !important;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../images/background_image.jpg");
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-container{
+    width: 50vw;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 28px;
+    overflow: hidden;    
+}
+
+.Quote{
+    background-color: white;
+
+}
+
+.Quote{
+    padding: 5% 10%;
+
+}
+
+h1{
+    margin: 1rem;
+}
+
+.Quote h1{
+    text-align: center;
+}
+
+.icon{
+    text-align: center;
+}
+
+i{
+    color: white;
+    background-color: darkblue;
+    font-size: 2rem;
+    padding: 0.5rem;
+    margin: 0 5%;
+}
+
+.icon label{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+label{
+    margin: 1rem 0;
+}
+
+button{
+    margin: 0.5rem 0;
+}
+
+button{
+    width: 100%;
+    padding: 0.5rem !important;
+}
+
+@media screen and (max-width: 768px) {
+    .my-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-height: 610px) {
+    body{
+        margin: 10% auto;
+    }
+    
+    body, .my-container{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .Quote > a{
+        float: left;
+    } 
+}
