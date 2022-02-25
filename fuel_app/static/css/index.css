@@ -70,7 +70,7 @@ button{
     padding: 0.5rem !important;
 }
 
-.login > a{
+form > a{
     float: right;
 }
 
@@ -121,7 +121,7 @@ button{
 }
 
 @media screen and (max-width: 425px) {
-    .login > a{
+    form > a{
         float: left;
     } 
 }
