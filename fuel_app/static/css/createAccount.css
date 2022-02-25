@@ -15,27 +15,28 @@ body{
 }
 
 .my-container{
-    width: 50vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 70vw;
     -moz-border-radius: 28px;
     -webkit-border-radius: 28px;
     border-radius: 28px;
     overflow: hidden;
 }
 
-.Profile{
+.Create{
     background-color: white;
 }
 
-.Profile{
+.Create, .logo{
     padding: 5% 10%;
-
 }
 
 h1{
     margin: 1rem;
 }
 
-.Profile h1{
+.Create h1, .logo h1{
     text-align: center;
 }
 
@@ -51,7 +52,7 @@ i{
     margin: 0 5%;
 }
 
-.icon label{
+.icon label, .app-info label{
     font-size: 1.2rem;
     font-weight: 500;
 }
@@ -60,7 +61,7 @@ label{
     margin: 1rem 0;
 }
 
-button{
+button, a{
     margin: 0.5rem 0;
 }
 
@@ -69,7 +70,42 @@ button{
     padding: 0.5rem !important;
 }
 
+.Create > a{
+    float: right;
+}
+
+.login{
+    margin: 5% 2%;
+}
+
+.logo{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    background-color: #EBEFFB;
+}
+
+.app-info label {
+    float: right;
+    text-align: end;
+}
+
+.imgGas{
+    position: relative;
+}
+
+.imgGas img{
+    position: absolute;
+    left: 0;
+    bottom:0;
+    width: 50%;
+    box-shadow: 20px 20px 15px gray;
+}
+
+
 @media screen and (max-width: 768px) {
+    .logo{
+        display: none;
+    }
     .my-container{
         grid-template-columns: repeat(1, 1fr);
     }
@@ -86,7 +122,7 @@ button{
 }
 
 @media screen and (max-width: 425px) {
-    .Profile > a{
+    .Create > a{
         float: left;
     } 
 }

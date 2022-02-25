@@ -19,14 +19,15 @@ body{
     -moz-border-radius: 28px;
     -webkit-border-radius: 28px;
     border-radius: 28px;
-    overflow: hidden;
+    overflow: hidden;    
 }
 
-.Profile{
+.Quote{
     background-color: white;
+
 }
 
-.Profile{
+.Quote{
     padding: 5% 10%;
 
 }
@@ -35,7 +36,7 @@ h1{
     margin: 1rem;
 }
 
-.Profile h1{
+.Quote h1{
     text-align: center;
 }
 
@@ -86,7 +87,7 @@ button{
 }
 
 @media screen and (max-width: 425px) {
-    .Profile > a{
+    .Quote > a{
         float: left;
     } 
 }

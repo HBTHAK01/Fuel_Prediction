@@ -9,12 +9,27 @@ views = Blueprint("views", __name__)
 def index():
 	return render_template("index.html")
 
-#Create Account Page Route
-@views.route('/create')
-def create():
-	return render_template("accountCreate.html")
+# Create Account Page Route
+@views.route('/createAccount')
+def createAccount():
+	return render_template("createAccount.html")
 
-#Profile Managment Page Route
+# Forgot Password Page Route
+@views.route('/forgotPassword')
+def forgotPassword():
+	return render_template("forgotPassword.html")
+
+# Profile Managment Page Route
 @views.route('/profile')
 def profile():
 	return render_template("profile.html")
+
+# Fuel Quote Page Route
+@views.route('/fuelQuote')
+def fuelQuote():
+	return render_template("fuelQuote.html")
+
+# Fuel Quote History Page Route
+@views.route('/quoteHistory')
+def quoteHistory():
+	return render_template("quoteHistory.html")
