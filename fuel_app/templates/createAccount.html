@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Sign Up</title>
+<link rel="stylesheet" href="static\css\createAccount.css"
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "my-container">
+    <div class = "Create">
+        <div class = "icon">
+            <i class="fas fa-gas-pump"></i>
+            <label>Fuel Master</label>
+        </div>
+
+        <!-- account info for create -->
+        <h1>Create Account</h1>
+            <form method = "POST">
+                <div class = "form-group">
+                    <label for = "username_Create">Username</label>
+                    <input type = "text" class = "form-control" placeholder= "Username" name="username_Create" required>
+                    
+                    <label for = "password_Create">Password</label>
+                    <input type = "password" class = "form-control" placeholder= "Password" name="password_Create" required>
+                </div>   
+                  <!-- signup submit button -->
+                <br>
+                <button type = "submit" class = "btn btn-primary">Sign up</button>             
+            </form>
+
+          
+
+            <!-- If user already has account -->
+            <div class = "login">
+                <p>Already have an account? <a href = /> Login</a></p>
+                <br>
+            </div>
+    </div>
+
+    <!-- web app description and picture -->
+    <div class = "logo">
+        <div class = "app-info">
+            <label>Fuel Master<br>
+                Reliable and Cheapest Fuel Price Predictor App
+            </label>
+        </div>
+        <div class = "imgGas">
+            <img src = "static/images/Fuel_Image.png">
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

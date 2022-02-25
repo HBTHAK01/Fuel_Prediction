@@ -7,36 +7,53 @@
 
 body{
     background-image: url("../images/background_image.jpg");
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
+.navbar-nav{
+    margin-left: auto;
+}
+
+.navbar-brand, .navbar-nav a{
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;  
+}
+
+button.navbar-toggler{
+    background-color: blue;
+    width: 50px;
+    margin: 0 0.5rem;
+}
+
+
+
 .my-container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 70vw;
+    width: 100vw;
     -moz-border-radius: 28px;
     -webkit-border-radius: 28px;
     border-radius: 28px;
-    overflow: hidden;       
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;    
 }
 
-.login{
-    background-color: white;   
+.Quote{
+    width: 50vw;
+    padding: 2.5% 5%;
+    margin: 5% auto;
+    background-color: white;
 }
 
-.login, .logo{
-    padding: 5% 10%;
-}
 
 h1{
     margin: 1rem;
 }
 
-.login h1, .logo h1{
+.Quote h1{
     text-align: center;
 }
 
@@ -51,8 +68,11 @@ i{
     padding: 0.5rem;
     margin: 0 5%;
 }
+.signout{
+    font-size: 1rem;
+}
 
-.icon label, .app-info label{
+.icon label{
     font-size: 1.2rem;
     font-weight: 500;
 }
@@ -61,7 +81,7 @@ label{
     margin: 1rem 0;
 }
 
-button, a{
+button{
     margin: 0.5rem 0;
 }
 
@@ -70,58 +90,22 @@ button{
     padding: 0.5rem !important;
 }
 
-form > a{
-    float: right;
-}
-
-.sign-up{
-    margin: 5% 2%;
-}
-
-.logo{
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    background-color: #EBEFFB;
-}
-
-.app-info label {
-    float: right;
-    text-align: end;
-}
-
-.imgGas{
-    position: relative;
-}
-
-.imgGas img{
-    position: absolute;
-    left: 0;
-    bottom:0;
-    width: 50%;
-    box-shadow: 20px 20px 15px gray;
-}
-
 @media screen and (max-width: 768px) {
-    .logo{
-        display: none;
-    }
     .my-container{
         grid-template-columns: repeat(1, 1fr);
     }
 }
 
 @media screen and (max-height: 610px) {
-    body{
-        margin: 10% auto;
-    }
     
-    body, .my-container{
+    
+    .my-container{
         height: 100%;
     }
 }
 
 @media screen and (max-width: 425px) {
-    form > a{
+    .Quote > a{
         float: left;
     } 
 }
