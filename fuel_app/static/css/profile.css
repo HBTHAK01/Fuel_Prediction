@@ -26,7 +26,7 @@ body{
     background-color: white;
 }
 
-.Create{
+.Profile{
     padding: 5% 10%;
 
 }
@@ -35,11 +35,7 @@ h1{
     margin: 1rem;
 }
 
-<<<<<<< HEAD
 .Profile h1{
-=======
-.Create h1{
->>>>>>> 3c49d1baf72da7769e627218504f355ef885937f
     text-align: center;
 }
 
