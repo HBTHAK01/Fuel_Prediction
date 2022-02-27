@@ -34,7 +34,6 @@ button.navbar-toggler{
     -moz-border-radius: 28px;
     -webkit-border-radius: 28px;
     border-radius: 28px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +67,7 @@ i{
     padding: 0.5rem;
     margin: 0 5%;
 }
+
 .signout{
     font-size: 1rem;
 }
@@ -88,6 +88,10 @@ button{
 button{
     width: 100%;
     padding: 0.5rem !important;
+}
+
+.navbar-nav a{
+    font-weight: 400;
 }
 
 @media screen and (max-width: 768px) {
