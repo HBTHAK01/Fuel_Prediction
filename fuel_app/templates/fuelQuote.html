@@ -44,16 +44,16 @@
                     <input type = "number" class = "form-control" placeholder= "Gallons Requested" name="gallons_requested" required>
                     
                     <label for = "delivery_address">Delivery Address</label>
-                    <input type = "text" class = "form-control" name="delivery_address" required>                
+                    <input type = "text" class = "form-control" name="delivery_address" readonly>                
 
                     <label for = "delivery_date">Delivery Date<FONT COLOR=red> * </FONT></label>
-                    <input type = "date" class = "form-control" name="delivery_date">
+                    <input type = "date" class = "form-control" name="delivery_date" required>
 
                     <label for = "price_rate">Price/gallon</label>
-                    <input type = "number" class = "form-control" name="price_rate" required>
+                    <input type = "number" class = "form-control" name="price_rate" readonly>
 
                     <label for = "total_price">Total Amount due</label>
-                    <input type = "number" class = "form-control" name="total_price" required>
+                    <input type = "number" class = "form-control" name="total_price" readonly>
                 </div>            
                 <br>
                 
@@ -64,5 +64,13 @@
           
     </div>    
 </div>
+
+<script>
+
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("delivery_date")[0].setAttribute('min', today);
     
+</script>
+
 {% endblock %}
+
