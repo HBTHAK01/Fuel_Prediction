@@ -32,8 +32,37 @@ body{
     padding: 5% 10%;
 }
 
+.apptext{
+    
+    background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 2.5vw;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+
+}
+
 h1{
-    margin: 1rem;
+    margin: 3vh 1vw 1vh 1vw;
+    font-size: 2.2vw;
 }
 
 .login h1, .logo h1{
@@ -55,6 +84,31 @@ i{
 .icon label, .app-info label{
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+.appname{
+    font-size: 2.2vw;
+    text-align: center;
+}
+
+.appdes{
+    position: relative;
+    top: 16%;
+    font-size: 1.2vw;
+    text-align: center;
+    padding: 1.5vh 1.5vw;
+    background-color: lightblue;
+    box-shadow: 10px 10px darkblue;
+}
+
+.appdes2{
+    position: relative;
+    top: 32%;
+    font-size: 1.2vw;
+    text-align: center;
+    padding: 1.5vh 1.5vw;
+    background-color: lightblue;
+    box-shadow: 10px 10px darkblue;
 }
 
 label{
@@ -80,25 +134,13 @@ form > a{
 
 .logo{
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     background-color: #EBEFFB;
 }
 
 .app-info label {
     float: right;
     text-align: end;
-}
-
-.imgGas{
-    position: relative;
-}
-
-.imgGas img{
-    position: absolute;
-    left: 0;
-    bottom:0;
-    width: 50%;
-    box-shadow: 20px 20px 15px gray;
 }
 
 @media screen and (max-width: 768px) {

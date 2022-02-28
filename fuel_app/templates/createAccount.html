@@ -13,21 +13,23 @@
     <div class = "Create">
         <div class = "icon">
             <i class="fas fa-gas-pump"></i>
-            <label>Fuel Master</label>
+            <h2 class="apptext">FuelMaster</h2>
         </div>
 
         <!-- account info for create -->
         <h1>Create Account</h1>
             <form method = "POST">
                 <div class = "form-group">
-                    <label for = "username_Create">Username</label>
+                    <label for = "username_Create"> Username <FONT COLOR=red> * </FONT></label>
                     <input type = "text" class = "form-control" placeholder= "Username" name="username_Create" required>
                     
-                    <label for = "password_Create">Password</label>
-                    <input type = "password" class = "form-control" placeholder= "Password" name="password_Create" required>
-                </div>   
-                  <!-- signup submit button -->
+                    <label for = "password_Create">Password<FONT COLOR=red> * </FONT></label>
+                    <input type = "password" class = "form-control" placeholder= "Password" name="password_Create" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters" required>
+                </div>
                 <br>
+                <p><FONT COLOR=red> * fields are required </FONT></p>   
+                  <!-- signup submit button -->
+                
                 <button type = "submit" class = "btn btn-primary">Sign up</button>             
             </form>
 
@@ -43,12 +45,9 @@
     <!-- web app description and picture -->
     <div class = "logo">
         <div class = "app-info">
-            <label>Fuel Master<br>
-                Reliable and Cheapest Fuel Price Predictor App
-            </label>
-        </div>
-        <div class = "imgGas">
-            <img src = "static/images/Fuel_Image.png">
+            <h2 class="appname">FuelMaster</h2><br>
+            <h2 class="appdes">Reliable and Cheapest Fuel Price Predictor Web Application</h2><br>
+            <h2 class="appdes2">We keep our profit margin low to provide you the best price</h2><br>                           
         </div>
     </div>
 </div>
