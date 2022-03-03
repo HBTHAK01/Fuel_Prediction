@@ -1,7 +1,9 @@
 # import statements
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
+from .models import UserCredentials
+from . import db
 
-# defining blueprint named "views"
+# Defining blueprint named "views"
 views = Blueprint("views", __name__)
 
 # Home Page Route
@@ -10,7 +12,7 @@ def index():
 	return render_template("index.html")
 
 # Create Account Page Route
-@views.route('/createAccount')
+@views.route('/createAccount', methods = ['GET', 'POST'])
 def createAccount():
 	return render_template("createAccount.html")
 
