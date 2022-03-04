@@ -143,6 +143,7 @@ form > a{
     text-align: end;
 }
 
+
 @media screen and (max-width: 768px) {
     .logo{
         display: none;

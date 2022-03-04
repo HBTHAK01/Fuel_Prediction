@@ -9,9 +9,13 @@ body{
     background-image: url("../images/background_image.jpg");
     height: 100vh;
     width: 100vw;
+   
+}
+.wrap-container{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .my-container{
@@ -118,13 +122,19 @@ label{
     margin: 1rem 0;
 }
 
-button, a{
-    margin: 0.5rem 0 !important;
+#sign-up-button{
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0 ;
 }
 
-button{
-    width: 100%;
-    padding: 0.5rem !important;
+button.btn-close{
+    padding: 0.75rem 0 0 0.75rem !important;
+    float: right;
+}
+
+a{
+    margin: 0.5rem 0 !important;
 }
 
 .Create > a{
@@ -156,12 +166,12 @@ button{
     }
 }
 
-@media screen and (max-height: 610px) {
-    body{
-        margin: 10% auto;
+@media screen and (max-height: 650px) {
+    .wrap-container{
+        margin: 5% auto;
     }
     
-    body, .my-container{
+    body, .wrap-container, .my-container{
         height: 100%;
     }
 }
