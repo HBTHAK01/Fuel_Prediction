@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 # Using pymysql connector to use for SQLALCHEMY
-conn = 'mysql+pymysql://root:@localhost/Fuel_Database'
+conn = 'mysql+pymysql://root:****@localhost/Fuel_Database'
 
 def create_app():
     # Flask constructor
