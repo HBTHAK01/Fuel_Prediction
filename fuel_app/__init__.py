@@ -26,6 +26,6 @@ def create_app():
     db.init_app(app)
 
     # Importing models
-    from .models import UserCredentials
+    from .models import Usercredentials
 
     return app
