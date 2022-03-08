@@ -39,8 +39,26 @@ def createAccount():
 	return render_template("createAccount.html")
 
 # Forgot Password Page Route
-@views.route('/forgotPassword')
+@views.route('/forgotPassword', methods = ['GET', 'POST'])
 def forgotPassword():
+	if request.method == "POST":
+		username = request.form.get ("username_Reset")
+		password = request.form.get ("password_Reset")
+		confirm_password = request.form.get ("c_password_Reset")
+
+		account = Usercredentials.query.filter_by (username = username).first()
+
+		if not account:
+			flash ("Username doesn't exist", category = "error")
+
+		elif password != confirm_password:
+			flash ("Passwords did not match", category = "error")		
+
+		else:
+			account.password = generate_password_hash (password, method = "sha256")
+			db.session.commit()
+			flash ("Password changed successfully", category = "success")
+
 	return render_template("forgotPassword.html")
 
 # Profile Managment Page Route
