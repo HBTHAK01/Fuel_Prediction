@@ -1,4 +1,4 @@
-# Functions to test all the functions of the application
+# In this file, test all the functions of the application
 
 # Testing createAccount function
 def test_createAccount(client):
@@ -17,3 +17,11 @@ def test_forgotPassword(client):
         "c_password_Reset": "abcABC123",
     })
     assert response.status_code == 200
+
+# Testing login function
+def test_login(client):
+    response = client.post("/", data ={
+        "username_login": "testUser",
+        "password_login": "abcABC123"
+    })
+    assert response.status_code == 302

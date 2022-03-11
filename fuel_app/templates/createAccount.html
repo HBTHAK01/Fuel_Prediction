@@ -45,7 +45,7 @@
                 <form method = "POST">
                     <div class = "form-group">
                         <label for = "username_Create"> Username <FONT COLOR=red> * </FONT></label>
-                        <input type = "text" class = "form-control" placeholder= "Username" name="username_Create" required>
+                        <input type = "text" class = "form-control" placeholder= "Username" name="username_Create" maxlength="50" required>
                         
                         <label for = "password_Create">Password<FONT COLOR=red> * </FONT></label>
                         <input type = "password" class = "form-control" placeholder= "Password" name="password_Create" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters" required>
