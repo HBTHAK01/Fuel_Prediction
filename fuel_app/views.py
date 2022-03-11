@@ -1,6 +1,6 @@
 # import statements
 from flask import Blueprint, message_flashed, render_template, request, flash, redirect, url_for
-from .models import Usercredentials
+from .models import Usercredentials, Clientinformation, Fuelquote
 from . import db
 
 # Hash passwords
@@ -10,8 +10,20 @@ from werkzeug.security import generate_password_hash, check_password_hash
 views = Blueprint("views", __name__)
 
 # Home Page Route
-@views.route('/')
+@views.route('/', methods = ['GET','POST'])
 def index():
+	if request.method == "POST":
+		usernamelogin = request.form.get ("username_login")
+		passwordlogin = request.form.get ("password_login")
+
+		# checking username and password
+		usernamecheck = Usercredentials.query.filter_by (username = usernamelogin).first()
+		if usernamecheck and check_password_hash(usernamecheck.password, passwordlogin):
+			flash('You were successfully logged in')
+			return redirect(url_for('views.profile'))	
+		else:
+			flash ("Incorrect username or password", category = "error")
+
 	return render_template("index.html")
 
 # Create Account Page Route
@@ -62,13 +74,35 @@ def forgotPassword():
 	return render_template("forgotPassword.html")
 
 # Profile Managment Page Route
-@views.route('/profile')
+@views.route('/profile', methods = ['GET', 'POST'])
 def profile():
+	if request.method == "POST":
+		name = request.form.get ("name_Profile")
+		email = request.form.get ("email_address")
+		address1 = request.form.get ("Address1_Profile")
+		address2 = request.form.get ("Address2_Profile")
+		city = request.form.get ("city_Profile")
+		state = request.form.get ("select-state")
+		zipcode = request.form.get ("zipcode_Profile")
+
+		new_profile = Clientinformation(name = name, email = email, address1 = address1, address2 = address2, city = city, state = state, zipcode = zipcode)
+		db.session.add(new_profile)
+		db.session.commit()
+
 	return render_template("profile.html")
 
 # Fuel Quote Page Route
-@views.route('/fuelQuote')
+@views.route('/fuelQuote', methods = ['GET', 'POST'])
 def fuelQuote():
+	if request.method == "POST":
+		gallons = request.form.get ("gallons_requested")
+		deliverydate = request.form.get ("delivery_date")
+
+		new_quote = Fuelquote(gallons = gallons, deliverydate = deliverydate)
+		db.session.add(new_quote)
+		db.session.commit()
+
+
 	return render_template("fuelQuote.html")
 
 # Fuel Quote History Page Route

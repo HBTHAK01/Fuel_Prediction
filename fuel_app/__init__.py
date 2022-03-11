@@ -26,6 +26,6 @@ def create_app():
     db.init_app(app)
 
     # Importing models
-    from .models import Usercredentials
+    from .models import Usercredentials, Clientinformation, Fuelquote
 
     return app
