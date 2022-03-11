@@ -57,3 +57,22 @@ Example: git commit -m " FPA-4 #comment Example commit"
 -> git push origin <your branchname>
 
 ----------------------------------------------------------------------
+
+
+Commands to test and check the code coverage of the application:
+
+1. To run your test suite and gather data use 'coverage run'.
+
+-> coverage run -m pytest
+
+2. To report on the results use 'coverage report'.
+
+-> coverage report -m
+
+3. To get a nice annotated HTML report use 'coverage html'.
+
+-> coverage html
+
+-----------------------------------------------------------------------
+
+

@@ -55,7 +55,7 @@ h1{
     margin: 1rem;
 }
 
-.Profile h1{
+.Create h1{
     text-align: center;
 }
 
@@ -106,7 +106,7 @@ button{
 }
 
 @media screen and (max-width: 425px) {
-    .Profile > a{
+    .Create > a{
         float: left;
     } 
 }
