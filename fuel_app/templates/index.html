@@ -9,6 +9,20 @@
 
 {% block body %}
 
+<!-- Flashed Messages -->
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'error' %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                    <button type = "button" class ="btn-close" data-bs-dismiss ="alert"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 <div class = "my-container">
     <div class = "login">
         <div class = "icon">

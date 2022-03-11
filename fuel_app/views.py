@@ -10,8 +10,20 @@ from werkzeug.security import generate_password_hash, check_password_hash
 views = Blueprint("views", __name__)
 
 # Home Page Route
-@views.route('/')
+@views.route('/', methods = ['GET','POST'])
 def index():
+	if request.method == "POST":
+		usernamelogin = request.form.get ("username_login")
+		passwordlogin = request.form.get ("password_login")
+		
+		# checking username and password
+		usernamecheck = Usercredentials.query.filter_by (username = usernamelogin).first()
+		if usernamecheck and check_password_hash(usernamecheck.password, passwordlogin):
+			flash('You were successfully logged in')
+			return redirect(url_for('views.profile'))	
+		else:
+			flash ("incorrect username or password", category = "error")
+	
 	return render_template("index.html")
 
 # Create Account Page Route
@@ -39,8 +51,26 @@ def createAccount():
 	return render_template("createAccount.html")
 
 # Forgot Password Page Route
-@views.route('/forgotPassword')
+@views.route('/forgotPassword', methods = ['GET', 'POST'])
 def forgotPassword():
+	if request.method == "POST":
+		username = request.form.get ("username_Reset")
+		password = request.form.get ("password_Reset")
+		confirm_password = request.form.get ("c_password_Reset")
+
+		account = Usercredentials.query.filter_by (username = username).first()
+
+		if not account:
+			flash ("Username doesn't exist", category = "error")
+
+		elif password != confirm_password:
+			flash ("Passwords did not match", category = "error")		
+
+		else:
+			account.password = generate_password_hash (password, method = "sha256")
+			db.session.commit()
+			flash ("Password changed successfully", category = "success")
+
 	return render_template("forgotPassword.html")
 
 # Profile Managment Page Route
