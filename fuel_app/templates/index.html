@@ -9,60 +9,48 @@
 
 {% block body %}
 
-
-<!-- Flashed Messages -->
-{% with messages = get_flashed_messages(with_categories = true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            {% if category == 'error' %}
-                <div class="alert alert-danger" role="alert">
-                    {{ message }}
-                    <button type = "button" class ="btn-close" data-bs-dismiss ="alert"></button>
-                </div>
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-{% endwith %}
-
-<div class = "my-container">
-    <div class = "login">
-        <div class = "icon">
-            <i class="fas fa-gas-pump"></i>
-            <h2 class="apptext">FuelMaster</h2>
+<div class = "wrap-container">
+    <div class = "my-container">
+        <div class = "login">
+            <div class = "icon">
+                <i class="fas fa-gas-pump"></i>
+                <h2 class="apptext">FuelMaster</h2>
+            </div>
+    
+            <!-- login info inputs -->
+            <h1>Welcome Back</h1>
+    
+                <form method = "POST">
+                    <div class = "form-group">
+                        <label for = "username_login">Username</label>
+                        <input type = "text" class = "form-control" placeholder= "Username" name="username_login" required>
+                        
+                        <label for = "password_login">Password</label>
+                        <input type = "password" class = "form-control" placeholder= "Password" name="password_login" required>
+                    </div>     
+                    <a href = forgotPassword>Forgot your password?</a>
+    
+                    <!-- the button to submit login info -->
+                    <button type = "submit" id = "login-button" class = "btn btn-primary">Login</button>
+                    <div class = "sign-up">
+                        <p>Don't have an account? <a href = createAccount> Sign-up</a></p>
+                    </div>           
+                </form>
+                <br>
+               
         </div>
-
-        <!-- login info inputs -->
-        <h1>Welcome Back</h1>
-
-            <form method = "POST">
-                <div class = "form-group">
-                    <label for = "username_login">Username</label>
-                    <input type = "text" class = "form-control" placeholder= "Username" name="username_login" required>
-                    
-                    <label for = "password_login">Password</label>
-                    <input type = "password" class = "form-control" placeholder= "Password" name="password_login" required>
-                </div>     
-                <a href = forgotPassword>Forgot your password?</a>
-
-                <!-- the button to submit login info -->
-                <button type = "submit" class = "btn btn-primary">Login</button>
-                <div class = "sign-up">
-                    <p>Don't have an account? <a href = createAccount> Sign-up</a></p>
-                </div>           
-            </form>
-            <br>
-           
-    </div>
-
-    <!-- web app description and picture -->
-    <div class = "logo">
-        <div class = "app-info">
-            <h2 class="appname">FuelMaster</h2><br>
-            <h2 class="appdes">Reliable and Cheapest Fuel Price Predictor Web Application</h2><br>
-            <h2 class="appdes2">We keep our profit margin low to provide you the best price</h2><br>                           
+    
+        <!-- web app description and picture -->
+        <div class = "logo">
+            <div class = "app-info">
+                <h2 class="appname">FuelMaster</h2><br>
+                <h2 class="appdes">Reliable and Cheapest Fuel Price Predictor Web Application</h2><br>
+                <h2 class="appdes2">We keep our profit margin low to provide you the best price</h2><br>                           
+            </div>
+            
         </div>
-        
     </div>
 </div>
+
     
 {% endblock %}
