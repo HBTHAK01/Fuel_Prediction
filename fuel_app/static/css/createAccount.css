@@ -129,12 +129,12 @@ label{
 }
 
 button.btn-close{
-    padding: 0.75rem 0 0 0.75rem !important;
     float: right;
+    margin-right: 1rem;
 }
 
 a{
-    margin: 0.5rem 0 !important;
+    margin: 0.5rem 0;
 }
 
 .Create > a{
@@ -167,12 +167,11 @@ a{
 }
 
 @media screen and (max-height: 650px) {
+    body, .wrap-container{
+        height: 100%;
+    }
     .wrap-container{
         margin: 5% auto;
-    }
-    
-    body, .wrap-container, .my-container{
-        height: 100%;
     }
 }
 

@@ -59,7 +59,7 @@ h1{
     text-align: center;
 }
 
-i{
+.icon > i, label > i{
     color: white;
     background-color: darkblue;
     font-size: 2rem;
