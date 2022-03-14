@@ -9,13 +9,9 @@ body{
     background-image: url("../images/background_image.jpg");
     height: 100vh;
     width: 100vw;
-}
-
-.wrap-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .my-container{
@@ -119,19 +115,13 @@ label{
     margin: 1rem 0;
 }
 
-a{
+button, a{
     margin: 0.5rem 0;
 }
 
-
-#login-button{
+button{
     width: 100%;
-    padding: 0.5rem;
-    margin: 0.5rem 0 ;
-}
-button.btn-close{
-    float: right;
-    margin-right: 1rem;
+    padding: 0.5rem !important;
 }
 
 form > a{
@@ -164,14 +154,13 @@ form > a{
 }
 
 @media screen and (max-height: 610px) {
-    body, .wrap-container{
+    body{
+        margin: 10% auto;
+    }
+    
+    body, .my-container{
         height: 100%;
     }
-
-    .wrap-container{
-        margin: 5% auto;
-    }
- 
 }
 
 @media screen and (max-width: 425px) {
