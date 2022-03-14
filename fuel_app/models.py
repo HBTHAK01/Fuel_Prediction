@@ -1,13 +1,10 @@
 # import statements
 from . import db
-from flask_login import UserMixin
+
 
 # UserCredentials model defines the login details of the User
-# UserMixin provides default implementations for Flask-Login expecting the user objects to have
-
-class Usercredentials(db.Model, UserMixin):    
-    id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String(50))
+class Usercredentials(db.Model):    
+    username = db.Column(db.String(50), primary_key=True)
     password = db.Column(db.String(150))
 
 # Clientinformation model defines the profile details of the User
