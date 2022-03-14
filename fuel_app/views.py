@@ -1,5 +1,7 @@
 # import statements
+from re import A
 from flask import Blueprint, message_flashed, render_template, request, flash, redirect, url_for
+from flask_login import login_user, login_required, logout_user, current_user
 from .models import Usercredentials, Clientinformation, Fuelquote
 from . import db
 
@@ -12,19 +14,26 @@ views = Blueprint("views", __name__)
 # Home Page Route
 @views.route('/', methods = ['GET','POST'])
 def index():
+
+	# Makes sure user is logged out.
+	# If a user is logged in and did not logout and tried to access the homepage again, the navbar shows.
+	logout_user()
+
 	if request.method == "POST":
 		usernamelogin = request.form.get ("username_login")
 		passwordlogin = request.form.get ("password_login")
 
 		# checking username and password
-		usernamecheck = Usercredentials.query.filter_by (username = usernamelogin).first()
-		if usernamecheck and check_password_hash(usernamecheck.password, passwordlogin):
+		account = Usercredentials.query.filter_by (username = usernamelogin).first()
+		if account and check_password_hash(account.password, passwordlogin):
 			flash('You were successfully logged in')
+			login_user(account)
 			return redirect(url_for('views.profile'))	
 		else:
 			flash ("Incorrect username or password", category = "error")
-
-	return render_template("index.html")
+										
+										# Reference the user account as current user
+	return render_template("index.html", account = current_user)
 
 # Create Account Page Route
 @views.route('/createAccount', methods = ['GET', 'POST'])
@@ -47,8 +56,9 @@ def createAccount():
 			db.session.add(new_user)
 			db.session.commit()
 			flash ("Account successfully created", category = "success")
-		
-	return render_template("createAccount.html")
+			return redirect(url_for('views.index'))	
+
+	return render_template("createAccount.html", account = current_user)
 
 # Forgot Password Page Route
 @views.route('/forgotPassword', methods = ['GET', 'POST'])
@@ -71,10 +81,11 @@ def forgotPassword():
 			db.session.commit()
 			flash ("Password changed successfully", category = "success")
 
-	return render_template("forgotPassword.html")
+	return render_template("forgotPassword.html", account = current_user)
 
 # Profile Managment Page Route
 @views.route('/profile', methods = ['GET', 'POST'])
+@login_required
 def profile():
 	if request.method == "POST":
 		name = request.form.get ("name_Profile")
@@ -89,10 +100,11 @@ def profile():
 		db.session.add(new_profile)
 		db.session.commit()
 
-	return render_template("profile.html")
+	return render_template("profile.html", account = current_user)
 
 # Fuel Quote Page Route
 @views.route('/fuelQuote', methods = ['GET', 'POST'])
+@login_required
 def fuelQuote():
 	if request.method == "POST":
 		gallons = request.form.get ("gallons_requested")
@@ -103,9 +115,16 @@ def fuelQuote():
 		db.session.commit()
 
 
-	return render_template("fuelQuote.html")
+	return render_template("fuelQuote.html", account = current_user)
 
 # Fuel Quote History Page Route
 @views.route('/quoteHistory')
+@login_required
 def quoteHistory():
-	return render_template("quoteHistory.html")
+	return render_template("quoteHistory.html", account = current_user)
+
+@views.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('views.index'))
