@@ -1,9 +1,10 @@
 CREATE DATABASE Fuel_Database;
 
 CREATE TABLE Fuel_Database.Usercredentials (
-username varchar(50) NOT NULL,
+id INT NOT NULL AUTO_INCREMENT,
+username varchar(50) NOT NULL unique,
 password varchar(150) NOT NULL,
-PRIMARY KEY (username)
+PRIMARY KEY (id)
 );
 
 CREATE TABLE Fuel_Database.Clientinformation (
