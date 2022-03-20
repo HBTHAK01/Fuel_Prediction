@@ -80,6 +80,7 @@ def forgotPassword():
 			account.password = generate_password_hash (password, method = "sha256")
 			db.session.commit()
 			flash ("Password changed successfully", category = "success")
+			return redirect(url_for('views.index'))
 
 	return render_template("forgotPassword.html", account = current_user)
 
@@ -99,6 +100,7 @@ def profile():
 		new_profile = Clientinformation(name = name, email = email, address1 = address1, address2 = address2, city = city, state = state, zipcode = zipcode)
 		db.session.add(new_profile)
 		db.session.commit()
+		return redirect(url_for('views.fuelQuote'))
 
 	return render_template("profile.html", account = current_user)
 
