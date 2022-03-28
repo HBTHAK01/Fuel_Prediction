@@ -22,3 +22,5 @@ CREATE TABLE Fuel_Database.Fuelquote (
 gallons int  NOT NULL,
 deliverydate varchar(10) NOT NULL
 );
+
+asd
