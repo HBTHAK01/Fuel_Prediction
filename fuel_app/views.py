@@ -2,8 +2,10 @@
 from re import A
 from flask import Blueprint, message_flashed, render_template, request, flash, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
+from flask_mail import Mail, Message
 from .models import Usercredentials, Clientinformation, Fuelquote
 from . import db
+from . import mail
 
 # Hash passwords
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -100,6 +102,12 @@ def profile():
 		new_profile = Clientinformation(name = name, email = email, address1 = address1, address2 = address2, city = city, state = state, zipcode = zipcode)
 		db.session.add(new_profile)
 		db.session.commit()
+
+		# Send welcome/sign up email to the user
+		msg = Message('Welcome to FuelMaster!', sender = 'fuelapp03@gmail.com', recipients = [email])
+		msg.body = "Hello " + name + ",\n\n" + "Thanks for signing up with FuelMaster, most Reliable and Cheapest Fuel Price Predictor Web Application." + "\n\n" + "Regards,\n" + "FuelMaster Team"
+		mail.send(msg)
+
 		return redirect(url_for('views.fuelQuote'))
 
 	return render_template("profile.html", account = current_user)

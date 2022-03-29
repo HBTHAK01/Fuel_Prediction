@@ -29,7 +29,8 @@ button.navbar-toggler{
 }
 
 .navbar-nav a{
-    font-weight: 400;
+    font-weight: bold;
+    padding-right: 5vw;
 }
 
 .my-container{
