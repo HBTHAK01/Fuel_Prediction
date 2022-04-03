@@ -107,7 +107,7 @@ def profile():
 		msg = Message('Welcome to FuelMaster!', sender = 'fuelapp03@gmail.com', recipients = [email])
 		msg.body = "Hello " + name + ",\n\n" + "Thanks for signing up with FuelMaster, most Reliable and Cheapest Fuel Price Predictor Web Application." + "\n\n" + "Regards,\n" + "FuelMaster Team"
 		mail.send(msg)
-
+		flash ("Entry added successfully", category = "success")
 		return redirect(url_for('views.fuelQuote'))
 
 	return render_template("profile.html", account = current_user)
@@ -123,7 +123,7 @@ def fuelQuote():
 		new_quote = Fuelquote(gallons = gallons, deliverydate = deliverydate)
 		db.session.add(new_quote)
 		db.session.commit()
-
+		flash ("Entry added successfully", category = "success")
 
 	return render_template("fuelQuote.html", account = current_user)
 
@@ -132,6 +132,27 @@ def fuelQuote():
 @login_required
 def quoteHistory():
 	return render_template("quoteHistory.html", account = current_user)
+
+@views.route('/contact',  methods = ['GET', 'POST'])
+@login_required
+def contact():
+	try:
+		if request.method == "POST":
+			name = request.form.get("contact_name")
+			email = request.form.get("contact_email")
+			subject = request.form.get("contact_subject")
+			message = request.form.get("contact_message")
+
+			msg = Message(name + ': ' + subject, sender = "customeremail", recipients = ['fuelapp03@gmail.com'])
+			print(msg)
+			msg.body = message
+			mail.send(msg)
+
+			flash ("Email sent successfully", category = "success")
+	except:
+		flash ("An Error Occur", category = "error")
+
+	return render_template("contact.html", account = current_user)
 
 @views.route('/logout')
 @login_required

@@ -1,0 +1,102 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none !important;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../images/background_image.jpg");
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+.navbar-brand, .navbar-nav a{
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;  
+}
+
+button.navbar-toggler{
+    background-color: blue;
+    width: 50px;
+    margin: 0 0.5rem;
+}
+
+
+.my-container{
+    width: 100vw;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;    
+}
+
+.Contact{
+    width: 50vw;
+    padding: 2.5% 5%;
+    margin: 5% auto;
+    background-color: white;
+}
+
+
+h1{
+    margin: 1rem;
+}
+
+.Contact h1{
+    text-align: center;
+}
+
+.icon{
+    text-align: center;
+}
+
+.icon > i, label > i{
+    color: white;
+    background-color: darkblue;
+    font-size: 2rem;
+    padding: 0.5rem;
+    margin: 0 5%;
+}
+
+.signout{
+    font-size: 1rem;
+}
+
+.icon label{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+label{
+    margin: 1rem 0;
+}
+
+button{
+    margin: 0.5rem 0;
+}
+
+button{
+    width: 100%;
+    padding: 0.5rem !important;
+}
+
+.navbar-nav a{
+    font-weight: 400;
+}
+
+@media screen and (max-width: 768px){
+    .Contact{
+        width: 80vw;
+        padding: 2rem;
+
+    }
+}
