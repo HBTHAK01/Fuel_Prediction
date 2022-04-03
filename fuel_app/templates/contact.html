@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Contact</title>
+<link rel="stylesheet" href="static\css\contact.css"
+
+{% endblock %}
+
+{% block body %}
+<div class = "my-container">
+    <div class = "Contact">
+        <div class = "icon">
+            <i class="fas fa-gas-pump"></i>
+            <label>Fuel Master</label>
+        </div>
+
+        <!-- fuel quote info inputs -->
+        <h1>Fuel Quote</h1>
+            <form method = "POST">
+                <div class = "form-group">
+                    <label for = "contact_name">Your Name <FONT COLOR=red> * </FONT></label>
+                    <input type = "text" class = "form-control" placeholder= "Name" name="contact_name" required>
+                    
+                    <label for = "contact_email">Email Address <FONT COLOR=red> * </FONT></label>
+                    <input type = "email" class = "form-control" placeholder= "Email" name="contact_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="50" required>
+
+                    <label for = "contact_subject">Subject <FONT COLOR=red> * </FONT></label>
+                    <input type = "text" class = "form-control" name="contact_subject" required>
+
+                    <label for = "contact_message">Message <FONT COLOR=red> * </FONT></label>
+                    <textarea class = "form-control" name="contact_message" required></textarea>
+
+                </div>            
+                <br>
+                
+                <p><FONT COLOR=red> * fields are required </FONT> </p>
+                <!-- button to submit fuel quote info -->
+                <button type = "submit" class = "btn btn-primary">Submit</button>
+            </form>
+    </div>    
+</div>
+
+{% endblock %}
