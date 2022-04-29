@@ -154,6 +154,11 @@ def contact():
 
 	return render_template("contact.html", account = current_user)
 
+@views.route('/about')
+@login_required
+def about():
+	return render_template("about.html", account = current_user)
+
 @views.route('/logout')
 @login_required
 def logout():
