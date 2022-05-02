@@ -28,6 +28,11 @@ button.navbar-toggler{
     margin: 0 0.5rem;
 }
 
+.navbar-nav a{
+    font-weight: bold;
+    padding-right: 5vw;
+}
+
 .my-container{
     width: 100vw;
     -moz-border-radius: 28px;

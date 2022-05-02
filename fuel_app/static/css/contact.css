@@ -27,6 +27,10 @@ button.navbar-toggler{
     margin: 0 0.5rem;
 }
 
+.navbar-nav a{
+    font-weight: bold;
+    padding-right: 5vw;
+}
 
 .my-container{
     width: 100vw;
@@ -89,9 +93,6 @@ button{
     padding: 0.5rem !important;
 }
 
-.navbar-nav a{
-    font-weight: 400;
-}
 
 @media screen and (max-width: 768px){
     .Contact{
