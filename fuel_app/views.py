@@ -87,9 +87,27 @@ def forgotPassword():
 	return render_template("forgotPassword.html", account = current_user)
 
 # Profile Managment Page Route
+
+def setUpdateProfile(existing_account, updateProfile):
+	existing_account.name = updateProfile[0]
+
+	existing_account.email = updateProfile[1]
+
+	existing_account.address1 = updateProfile[2]
+
+	existing_account.address2 = updateProfile[3]
+
+	existing_account.city = updateProfile[4]
+
+	existing_account.state = updateProfile[5]
+
+	existing_account.zipcode = updateProfile[6]
+
+
 @views.route('/profile', methods = ['GET', 'POST'])
 @login_required
 def profile():
+	
 	if request.method == "POST":
 		name = request.form.get ("name_Profile")
 		email = request.form.get ("email_address")
@@ -99,17 +117,31 @@ def profile():
 		state = request.form.get ("select-state")
 		zipcode = request.form.get ("zipcode_Profile")
 
-		new_profile = Clientinformation(name = name, email = email, address1 = address1, address2 = address2, city = city, state = state, zipcode = zipcode)
-		db.session.add(new_profile)
-		db.session.commit()
+		existing_account = Clientinformation.query.first()
 
-		# Send welcome/sign up email to the user
-		msg = Message('Welcome to FuelMaster!', sender = 'fuelapp03@gmail.com', recipients = [email])
-		msg.body = "Hello " + name + ",\n\n" + "Thanks for signing up with FuelMaster, most Reliable and Cheapest Fuel Price Predictor Web Application." + "\n\n" + "Regards,\n" + "FuelMaster Team"
-		mail.send(msg)
-		flash ("Entry added successfully", category = "success")
-		return redirect(url_for('views.fuelQuote'))
+		if existing_account != None:
+			updateProfile = [name, email, address1, address2, city, state, zipcode]
 
+			setUpdateProfile(existing_account, updateProfile)
+	
+			db.session.commit()
+			
+			flash("Profile is updated successfully.", category = "success")
+			return redirect(url_for('views.fuelQuote'))
+
+		else:
+			new_profile = Clientinformation(name = name, email = email, address1 = address1, address2 = address2, city = city, state = state, zipcode = zipcode)
+			db.session.add(new_profile)
+			db.session.commit()
+
+			# Send welcome/sign up email to the user
+			msg = Message('Welcome to FuelMaster!', sender = 'fuelapp03@gmail.com', recipients = [email])
+			msg.body = "Hello " + name + ",\n\n" + "Thanks for signing up with FuelMaster, most Reliable and Cheapest Fuel Price Predictor Web Application." + "\n\n" + "Regards,\n" + "FuelMaster Team"
+			mail.send(msg)
+			
+			flash ("Entry added successfully", category = "success")
+			return redirect(url_for('views.fuelQuote'))
+	
 	return render_template("profile.html", account = current_user)
 
 # Fuel Quote Page Route
