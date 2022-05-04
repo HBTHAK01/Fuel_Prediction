@@ -89,10 +89,13 @@ button{
 }
 
 button{
-    width: 100%;
+    width: 30%;
     padding: 0.5rem !important;
 }
 
+.quoteSubmit{
+    float: right;
+}
 
 @media screen and (max-width: 768px) {
     .my-container{

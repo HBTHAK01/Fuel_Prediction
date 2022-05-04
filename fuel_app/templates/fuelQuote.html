@@ -20,25 +20,26 @@
             <form method = "POST">
                 <div class = "form-group">
                     <label for = "gallons_requested">Gallons Requested <FONT COLOR=red> * </FONT></label>
-                    <input type = "number" class = "form-control" placeholder= "Gallons Requested" name="gallons_requested" required>
+                    <input type = "number" class = "form-control" placeholder= "Gallons Requested" name="gallons_requested" value="{{gallons}}" required>
                     
                     <label for = "delivery_address">Delivery Address</label>
-                    <input type = "text" class = "form-control" name="delivery_address" readonly>                
+                    <input type = "text" class = "form-control" name="delivery_address" value="{{user_address}}" readonly>                
 
                     <label for = "delivery_date">Delivery Date<FONT COLOR=red> * </FONT></label>
-                    <input type = "date" class = "form-control" name="delivery_date" required>
+                    <input type = "date" class = "form-control" name="delivery_date" value="{{deliverydate}}" required>
 
                     <label for = "price_rate">Price/gallon</label>
-                    <input type = "number" class = "form-control" name="price_rate" readonly>
+                    <input type = "number" class = "form-control" name="price_rate" value = "{{pergallon}}" readonly>
 
                     <label for = "total_price">Total Amount due</label>
-                    <input type = "number" class = "form-control" name="total_price" readonly>
+                    <input type = "number" class = "form-control" name="total_price" value = "{{total}}" readonly>
                 </div>            
                 <br>
                 
                 <p><FONT COLOR=red> * fields are required </FONT> </p>
                 <!-- button to submit fuel quote info -->
-                <button type = "submit" class = "btn btn-primary">Submit</button>
+                <button type = "submit" name="submit_button" value="getquote" class = "btn btn-primary">Get Quote</button>
+                <button type = "submit" name="submit_button" value="submitquote" class = "btn btn-primary quoteSubmit">Submit</button>
             </form>
           
     </div>    
