@@ -18,7 +18,8 @@
 
         <!-- Quote history table for the client -->
         <h1>Quote History</h1>
-            
+        
+        
         <table>
 
             <tr>
@@ -28,30 +29,30 @@
                 <th>Price/gallon</th>
                 <th>Amount Due</th>
             </tr>
+            
+            {% if fuel_history|length >= 1 %}
 
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-            </tr>
+                {% for i in range(fuel_history|length) %}
+                    <tr>
+                        <td>{{fuel_history[i].gallons}}</td>
+                        <td>{{fuel_history[i].deliveryaddress}}</td>
+                        <td>{{fuel_history[i].deliverydate}}</td>
+                        <td>{{fuel_history[i].pergallon}}</td>
+                        <td>{{fuel_history[i].total}}</td>
+                    </tr>
+                {% endfor %}
                 
-            <tr>
-                <td>a</td>
-                <td>b</td>
-                <td>c</td>
-                <td>d</td>
-                <td>e</td>
-            </tr>
 
-            <tr>
-                <td>P</td>
-                <td>Q</td>
-                <td>R</td>
-                <td>S</td>
-                <td>T</td>
-            </tr>
+            
+
+            {% else %}
+                <h4> No past history</h4>
+            
+            {% endif %}
+
+            
+                
+            
 
         </table>
     </div>    

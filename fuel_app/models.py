@@ -19,9 +19,14 @@ class Clientinformation(db.Model):
     city = db.Column(db.String(100))
     state = db.Column(db.String(2))
     zipcode = db.Column(db.String(9))
+    userid = db.Column(db.String(50))
     
 # Fuelquote model defines the fuel quote details of the User
 class Fuelquote(db.Model):
-    gallons = db.Column(db.Integer, primary_key=True)
+    userid = db.Column(db.String(50))
+    gallons = db.Column(db.Float , primary_key=True)
+    deliveryaddress = db.Column(db.String(150))
     deliverydate = db.Column(db.String(10))
+    pergallon = db.Column(db.Float)
+    total = db.Column(db.Float)
     

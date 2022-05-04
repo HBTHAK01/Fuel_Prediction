@@ -26,16 +26,16 @@ def test_forgotPassword(client):
 # Profile Managment Page Route
 def test_profile(client):
     response = client.get('/profile')
-    assert response.status_code == 200
+    assert response.status_code == 302
     
 # Fuel Quote Page Route
 def test_fuelQuote(client):
     response = client.get('/fuelQuote')
-    assert response.status_code == 200
+    assert response.status_code == 302
 
 # Fuel Quote History Page Route
 def test_quoteHistory(client):
     response = client.get('/quoteHistory')
-    assert response.status_code == 200
+    assert response.status_code == 302
 
 

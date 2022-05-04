@@ -8,6 +8,7 @@ PRIMARY KEY (id)
 );
 
 CREATE TABLE Fuel_Database.Clientinformation (
+userid varchar(50) NOT NULL unique,
 name varchar(50) NOT NULL,
 email varchar(50) NOT NULL,
 address1 varchar(100) NOT NULL,
@@ -19,6 +20,10 @@ PRIMARY KEY (email)
 );
 
 CREATE TABLE Fuel_Database.Fuelquote (
-gallons int  NOT NULL,
-deliverydate varchar(10) NOT NULL
+userid varchar(50) NOT NULL,
+gallons float NOT NULL,
+deliveryaddress varchar(150) NOT NULL,
+deliverydate varchar(10) NOT NULL,
+pergallon float NOT NULL,
+total float NOT NULL
 );

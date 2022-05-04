@@ -28,7 +28,7 @@ button.navbar-toggler{
 }
 
 .navbar-nav a{
-    font-weight: bold !important;
+    font-weight: bold;
     padding-right: 5vw;
 }
 
@@ -89,12 +89,12 @@ button{
 }
 
 button{
-    width: 100%;
+    width: 30%;
     padding: 0.5rem !important;
 }
 
-.navbar-nav a{
-    font-weight: 400;
+.quoteSubmit{
+    float: right;
 }
 
 @media screen and (max-width: 768px) {
