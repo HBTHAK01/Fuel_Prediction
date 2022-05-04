@@ -154,6 +154,8 @@ def setUpdateProfile(existing_account, updateProfile):
 
 	existing_account.zipcode = updateProfile[6]
 
+	existing_account.userid = updateProfile[7]
+
 
 @views.route('/profile', methods = ['GET', 'POST'])
 @login_required
@@ -171,7 +173,7 @@ def profile():
 		existing_account = Clientinformation.query.first()
 
 		if existing_account != None:
-			updateProfile = [name, email, address1, address2, city, state, zipcode]
+			updateProfile = [name, email, address1, address2, city, state, zipcode, current_user.username]
 
 			setUpdateProfile(existing_account, updateProfile)
 	
@@ -181,7 +183,7 @@ def profile():
 			return redirect(url_for('views.fuelQuote'))
 
 		else:
-			new_profile = Clientinformation(name = name, email = email, address1 = address1, address2 = address2, city = city, state = state, zipcode = zipcode)
+			new_profile = Clientinformation(userid = current_user.username, name = name, email = email, address1 = address1, address2 = address2, city = city, state = state, zipcode = zipcode)
 			db.session.add(new_profile)
 			db.session.commit()
 
