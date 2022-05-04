@@ -49,3 +49,13 @@ def test_fuelQuote(client):
         "total_price": "1000"
     })
     assert response.status_code == 302
+
+def test_contact(client):
+    response = client.post("/contact", data ={
+        "contact_name": "testname",
+        "contact_email": "testemail@gmail",
+        "contact_subject": "test address",
+        "contact_message": "Hi"
+        
+    })
+    assert response.status_code == 302
