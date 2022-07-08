@@ -1,6 +1,5 @@
 # import statements
 from re import A
-
 from pytest import Session
 from flask import Blueprint, message_flashed, render_template, request, flash, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
@@ -9,23 +8,15 @@ from .models import Usercredentials, Clientinformation, Fuelquote
 from . import db
 from . import mail
 
-
 # Hash passwords
 from werkzeug.security import generate_password_hash, check_password_hash
-
-
-
-
 
 
 # Defining blueprint named "views"
 views = Blueprint("views", __name__)
 
 
-
-
-
-#####################################
+# Pricing Module class with all rules/logic
 class pricing_module:
     def __init__(self, gallons_requested, isTexas, hasHistory, current_price = 1.50, company_profit = 0.1):
         self.gallons_requested = float(gallons_requested)
@@ -50,19 +41,11 @@ class pricing_module:
             gallons_requested_factor = 0.03
         
         margin = self.current_price * (self.location_factor - self.rate_history_factor + gallons_requested_factor + self.company_profit)
-        # print(margin)
+        
         suggested_price = self.current_price + margin
         total_amt_due = self.gallons_requested * suggested_price
 
         return (suggested_price, total_amt_due)
-##################################################
-
-
-
-
-
-
-
 
 # Home Page Route
 @views.route('/', methods = ['GET','POST'])
@@ -138,24 +121,15 @@ def forgotPassword():
 	return render_template("forgotPassword.html", account = current_user)
 
 # Profile Managment Page Route
-
 def setUpdateProfile(existing_account, updateProfile):
 	existing_account.name = updateProfile[0]
-
 	existing_account.email = updateProfile[1]
-
 	existing_account.address1 = updateProfile[2]
-
 	existing_account.address2 = updateProfile[3]
-
 	existing_account.city = updateProfile[4]
-
 	existing_account.state = updateProfile[5]
-
 	existing_account.zipcode = updateProfile[6]
-
 	existing_account.userid = updateProfile[7]
-
 
 @views.route('/profile', methods = ['GET', 'POST'])
 @login_required
@@ -206,12 +180,6 @@ def fuelQuote():
 			# print(1)
 			gallons = request.form.get ("gallons_requested")
 			deliverydate = request.form.get ("delivery_date")
-
-
-
-			
-
-
 
 			user_find = Clientinformation.query.filter_by (userid = current_user.username).first()
 
@@ -272,6 +240,8 @@ def quoteHistory():
 
 	return render_template("quoteHistory.html", account = current_user, fuel_history = fuel_history)
 
+
+# Contact Us Page Route
 @views.route('/contact',  methods = ['GET', 'POST'])
 @login_required
 def contact():
@@ -293,11 +263,15 @@ def contact():
 
 	return render_template("contact.html", account = current_user)
 
+
+# About Page Route
 @views.route('/about')
 @login_required
 def about():
 	return render_template("about.html", account = current_user)
 
+
+# Logout Page Route
 @views.route('/logout')
 @login_required
 def logout():
